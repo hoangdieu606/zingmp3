@@ -462,7 +462,7 @@
 
 /* Dark Other__ZingMusicAwards */
 [data-theme="zma"] {
-  --miniplayer-bg-img: url("./assets/theme/Other/zma-miniplayer.png");
+  --miniplayer-bg-img: url("../theme/Other/zma-miniplayer.png");
   --layout-bg: #37075d;
   --layout-header-bg: rgba(55, 7, 93, 0.8);
   --queue-player-popup-bg: #5d218c;

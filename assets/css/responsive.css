@@ -35,6 +35,9 @@
   --player-playermedia-width: 30%;
   --player-media-thumbnail-width-height: 64px;
   --player-btnplay-material-fontsize: 48px !important;
+  --player-track-hover-height: 5px;
+  --player-track-hover-thumb-display: visible;
+
 
   /* Content root */
   --content-padding: 0 59px;
@@ -178,6 +181,9 @@
     --player-media-thumbnail-width-height: 40px;
     --player-btnplay-material-fontsize: 24px !important;
     --player-track-wrapper-position: absolute;
+    --player-track-hover-height: 3px;
+    --player-track-hover-thumb-display: hidden;
+
 
     /* Content <= 739px */
     --content-padding: 0 10px;

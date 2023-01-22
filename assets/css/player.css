@@ -354,7 +354,7 @@
 }
 .track__wrapper:hover .track__bar,
 .music__volume:hover .track__bar {
-  height: 5px;
+  height: var(--player-track-hover-height);
 }
 .thumb__bar {
   width: 10px;
@@ -363,7 +363,7 @@
 }
 .track__wrapper:hover .thumb__bar,
 .music__volume:hover .thumb__bar {
-  visibility: visible;
+  visibility: var(--player-track-hover-thumb-display);
   width: 12px;
   height: 12px;
 }

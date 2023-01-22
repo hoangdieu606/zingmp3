@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/header.css" />
+    <link rel="stylesheet" href="./assets/css/themes.css" />
+    <link rel="stylesheet" href="./assets/css/sidebar.css" />
+    <link rel="stylesheet" href="./assets/css/content.css" />
+    <link rel="stylesheet" href="./assets/css/personal.css">
+    <link rel="stylesheet" href="./assets/css/player.css" />
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,700,1,0"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <div id="root">
+      <div class="layout">
+        <!-- Header -->
+        <div class="header"></div>
+        <!-- Sidebar -->
+        <div class="sidebar"></div>
+        <!-- Content personal -->
+        <div class="content active personal"></div>
+        <!-- Content explore -->
+        <div class="content explore"></div>
+        <!-- Content zingchart -->
+        <div class="content zingchart">zingchart</div>
+        <!-- Content radio -->
+        <div class="content radio">radio</div>
+        <!-- Content following -->
+        <div class="content following">following</div>
+        <!-- Content newmusic -->
+        <div class="content newmusic">newmusic</div>
+        <!-- Content category -->
+        <div class="content category">category</div>
+        <!-- Content top100 -->
+        <div class="content top100">top100</div>
+        <!-- Content mv -->
+        <div class="content mv">mv</div>
+        <!-- Playing music -->
+        <div class="player-music">music</div>
+      </div>
+    </div>
+    <!-- Modal theme -->
+    <div id="modal__theme">
+      <div id="theme">
+        <div class="theme__head">
+          <h3>Giao diện</h3>
+          <button id="theme__icon">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        <div class="theme__content">
+          <!-- Theme Dynamic -->
+        </div>
+      </div>
+    </div>
+
+    <script src="./Header.js"></script>
+    <script src="./themes.js"></script>
+    <script src="./Sidebar.js"></script>
+    <script src="./Explore.js"></script>
+    <script src="./PersonalPlayer.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>

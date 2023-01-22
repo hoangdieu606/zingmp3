@@ -1,0 +1,223 @@
+:root {
+  /* Header root */
+  --header-width: calc(100% - 240px);
+  --header-btn-arrowleft-arrowright-display: flex;
+  --header-scroll-bottom: 100%;
+  --header-padding: 0 59px;
+
+  /* Sidebar root */
+  --sidebar-width: 240px;
+  --sidebar-height: calc(100% - var(--player-height));
+  --sidebar-background-color: var(--sidebar-bg);
+  --sidebar-padding: 70px 0px 55px 0px;
+  --sidebar-head-padding: 13px 25px 17px 28px;
+  --sidebar-logo-width: 120px;
+  --sidebar-logo-height: 40px;
+  --sidebar-logo-background: var(--img-logo-mp3) 50% / contain no-repeat;
+  --sidebar-list-padding: 8px 25px;
+  --sidebar-expanded-list-padding: 10px 25px;
+  --sidebar-list-border-left: 3px solid transparent;
+  --sidebar-list-active-border-left: 3px solid var(--purple-primary);
+  --sidebar-list-icon-margin: 0px 10px 0px 0px;
+  --sidebar-list-title-display: flex;
+  --sidebar-list-hover-icon-play-display: flex;
+  --sidebar-expanded-width: 240px;
+  --sidebar-btn-expanded-display: none;
+  --sidebar-head-divide-footer-display: block;
+  --sidebar-banner-addplaylist-display: flex;
+
+  /* Player root */
+  --player-height: 90px;
+  --player-bottom: 0;
+  --player-control-primary-flex: 1;
+  --player-pc-mobile-display: flex;
+  --player-playermedia-width: 30%;
+  --player-media-thumbnail-width-height: 64px;
+  --player-btnplay-material-fontsize: 48px !important;
+
+  /* Content root */
+  --content-padding: 0 59px;
+  --content-margin-left: 240px;
+  --content-margin-bottom: var(--player-height);
+
+  /* Explore content root */
+  --explore-gallery-item-width: 33%;
+  --explore-gallery-item-next-prev-opacity: 1;
+  --explore-event-child-width: 33.3333%;
+  --explore-footer-item-width: 12.5%;
+  --explore-newmusic-primarychild-width: 33.3333%;
+  --explore-artistchild-radiochild-width: 14.28571%;
+  --explore-section-mediachild-width: 20%;
+  --explore-artist-newmusic-display: block;
+  --explore-radio-media-btn-display: flex;
+  --explore-banner-display: flex;
+
+  /* Personal root */
+  --personal-playlist-child-level-left-width: 50%;
+  --personal-playlist-slide-width: 290px;
+  --personal-playlist-media-right-display: flex;
+
+  /* Theme root */
+  --theme-max-height: 100%;
+  --theme-themechild-width: 16.66667%;
+  --theme-head-padding: 20px 30px;
+  --theme-body-padding: 0 30px;
+  --theme-border-radius: 8px;
+  --theme-apply-width: 100px;
+  --theme-apply-color: #fff;
+  --theme-apply-border-radius: 999px;
+  --theme-apply-background-color: var(--purple-primary);
+
+  /* Scroll root */
+  --scroll-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Media */
+
+/* max-width: 1350px */
+@media screen and (max-width: 1350px) {
+  :root {
+    /* Explore content <= 1350px */
+    --explore-section-mediachild-width: 25%;
+
+    /* Theme <= 1350px */
+    --theme-themechild-width: 25%;
+  }
+}
+
+/* max-width: 1224px */
+@media screen and (max-width: 1224px) {
+  :root {
+    --explore-newmusic-primarychild-width: 50%;
+    --explore-artistchild-radiochild-width: 20%;
+  }
+}
+
+/* max-width: 1133px */
+@media screen and (max-width: 1133px) {
+  :root {
+    /* Header <= 1133px */
+    --header-width: calc(100% - 70px);
+
+    /* Sidebar <= 1133px */
+    --sidebar-width: 70px;
+    --sidebar-background-color: var(--sidebar-popup-bg);
+    --sidebar-head-padding: 10px 13px;
+    --sidebar-logo-width: 45px;
+    --sidebar-logo-height: 45px;
+    --sidebar-logo-background: url(../icons/icon_zingsmall.svg);
+    --sidebar-list-padding: 15px 0px;
+    --sidebar-list-border-left: unset;
+    --sidebar-list-active-border-left: unset;
+    --sidebar-list-title-display: none;
+    --sidebar-btn-expanded-display: flex;
+    --sidebar-banner-addplaylist-display: none;
+
+    /* Content <= 1133px */
+    --content-margin-left: 70px;
+  }
+}
+
+/* max-width: 1023px */
+@media screen and (max-width: 1023px) {
+  :root {
+    /* Header <= 1023px */
+    --header-btn-upload-display: none;
+    --header-padding: 0 29px;
+
+    /* Content <= 1023px */
+    --content-padding: 0 29px;
+
+    /* Explore content <= 1023px */
+    --explore-event-child-width: 50%;
+    --explore-footer-item-width: 25%;
+
+    /* Theme <= 1023px */
+    --theme-themechild-width: 33.3333%;
+  }
+}
+
+/* max-width: 739px */
+@media screen and (max-width: 739px) {
+  :root {
+    /* Header <= 739px */
+    --header-width: 100%;
+    --header-padding: 0 10px;
+    --header-btn-vipsetting-display: none;
+    --header-btn-arrowleft-arrowright-display: none;
+
+    /* Sidebar <= 739px */
+    --sidebar-width: 100%;
+    --sidebar-height: 50px;
+    --sidebar-bottom: 0;
+    --sidebar-background-color: var(--sidebar-popup-bg);
+    --sidebar-padding: 0px;
+    --sidebar-body-display: flex;
+    --sidebar-list-flex-direction: column;
+    --sidebar-list-width: 20%;
+    --sidebar-list-padding: 5px;
+    --sidebar-expanded-list-padding: 5px;
+    --sidebar-list-icon-margin: 0px 0px 5px 0px;
+    --sidebar-list-title-display: flex;
+    --sidebar-list-title-font: 400 10px "Inter", sans-serif;
+    --sidebar-list-hover-icon-play-display: none;
+    --sidebar-list-title-figure-display: none;
+    --sidebar-expanded-width: 100%;
+    --sidebar-btn-expanded-display: none;
+    --sidebar-head-divide-footer-display: none;
+
+    /* Player <= 739px */
+    --player-height: 50px;
+    --player-bottom: 50px;
+    --player-pc-mobile-display: none;
+    --player-control-primary-flex: 0;
+    --player-playermedia-width: 100%;
+    --player-media-thumbnail-width-height: 40px;
+    --player-btnplay-material-fontsize: 24px !important;
+    --player-track-wrapper-position: absolute;
+
+    /* Content <= 739px */
+    --content-padding: 0 10px;
+    --content-margin-left: 0;
+    --content-margin-bottom: calc(
+      var(--player-height) + var(--sidebar-height) + 48px
+    );
+
+    /* Explore content  <= 739px */
+    --explore-section-mediachild-width: 45%;
+    --explore-gallery-item-width: 100%;
+    --explore-gallery-item-next-prev-opacity: 0;
+    --explore-event-child-width: 90%;
+    --explore-footer-display: none;
+    --explore-footer-item-width: 0;
+    --explore-artist-newmusic-display: none;
+    --explore-radio-media-btn-display: none;
+    --explore-artistchild-radiochild-width: 45%;
+    --explore-banner-display: none;
+
+    /* Personal content <= 739px */
+    --personal-flex-direction: column;
+    --personal-playlist-media-right-display: none;
+    --personal-playlist-child-level-left-width: 80%;
+    --personal-playlist-slide-width: 100%;
+    --personal-playlist-child-lastchild-display: none;
+
+    /* Theme <= 739px */
+    --theme-max-height: 400px;
+
+    --theme-themechild-width: 50%;
+    --theme-head-padding: 15px;
+    --theme-body-padding: 0 15px;
+    --theme-border-radius: none;
+    --theme-preview-display: none;
+    --theme-apply-width: 100%;
+    --theme-apply-position: absolute;
+    --theme-apply-border-radius: none;
+    --theme-apply-background-color: transparent;
+    --theme-apply-color: transparent;
+
+    /* Scroll  <= 739px */
+    --scroll-thumb-bg: transparent;
+    --scroll-box-shadow: unset;
+  }
+}

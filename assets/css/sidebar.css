@@ -1,0 +1,228 @@
+.sidebar {
+  position: fixed;
+  left: 0;
+  bottom: var(--sidebar-bottom);
+  z-index: 20;
+  width: var(--sidebar-width);
+  background-color: var(--sidebar-background-color);
+  height: var(--sidebar-height);
+  padding: var(--sidebar-padding);
+  display: flex;
+  flex-direction: column;
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 13px;
+  transition: width 0.3s ease-out;
+}
+
+.sidebar.is-expanded {
+  width: var(--sidebar-expanded-width);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* sidebar__head */
+.sidebar__head {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  padding: var(--sidebar-head-padding);
+}
+
+.sidebar__head,
+.sidebar__divide,
+.sidebar__footer{
+  display: var(--sidebar-head-divide-footer-display);
+}
+
+.is-expanded .sidebar__head {
+  padding: 13px 25px 17px 25px;
+}
+
+.sidebar__logo,
+.is-expanded .sidebar__logo {
+  width: var(--sidebar-logo-width);
+  height: var(--sidebar-logo-height);
+  background: var(--sidebar-logo-background);
+}
+
+/* Sidebar body */
+.sidebar__body {
+  display: var(--sidebar-body-display);
+}
+
+
+.is-expanded .sidebar__logo {
+  width: 120px;
+  height: 40px;
+  background: var(--img-logo-mp3) 50% / contain no-repeat;
+}
+
+.sidebar svg {
+  width: 100%;
+}
+.sidebar figure {
+  line-height: 0;
+  margin-left: 8px;
+}
+
+/* sidebar__list */
+.sidebar .list {
+  position: relative;
+  display: flex;
+  flex-direction: var(--sidebar-list-flex-direction);
+  width: var(--sidebar-list-width);
+  justify-content: center;
+
+  align-items: center;
+  padding: var(--sidebar-list-padding);
+  color: var(--navigation-text);
+  line-height: normal;
+  border-left: var(--sidebar-list-border-left);
+  cursor: pointer;
+}
+
+.sidebar.is-expanded .list {
+  padding: var(--sidebar-expanded-list-padding);
+}
+
+.list.is-active {
+  background-color: var(--alpha-bg);
+  color: var(--text-item-hover);
+  border-left: var(--sidebar-list-active-border-left);
+}
+
+.sidebar .list:hover {
+  color: var(--text-item-hover);
+}
+.list:hover .list__icon-play {
+  display: var(--sidebar-list-hover-icon-play-display);
+}
+.list__icon {
+  margin: var(--sidebar-list-icon-margin);
+  display: flex;
+}
+.list__icon-play {
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+}
+.list__icon-play .material-symbols-outlined {
+  font-size: 22px !important;
+  opacity: 1;
+}
+.list__title {
+  flex: 1;
+  font: var(--sidebar-list-title-font);
+  display: var(--sidebar-list-title-display);
+}
+.list__title figure {
+  display: var(--sidebar-list-title-figure-display);
+}
+
+
+.is-expanded .list__title {
+  display: flex;
+}
+
+/* sidebar__footer */
+.sidebar__footer {
+  position: relative;
+  margin-right: 2px;
+  overflow: hidden;
+}
+.sidebar__footer:hover {
+  overflow: hidden overlay;
+}
+
+.sidebar__footer .banner {
+  flex-direction: column;
+  padding: 15px 8px;
+  border-radius: 8px;
+  margin: 10px 20px;
+  text-align: center;
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 600;
+  background-color: var(--purple-primary);
+}
+
+.banner,
+.sidebar__add-playlist {
+  display: var(--sidebar-banner-addplaylist-display);
+}
+
+.banner p {
+  margin-bottom: 10px;
+}
+.banner button {
+  border-radius: 999px;
+  line-height: normal;
+  border: 1px solid var(--white);
+  padding: 6px 35px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* sidebar__divide */
+.sidebar__divide {
+  position: relative;
+  height: 1px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.is-expanded .sidebar__divide {
+  margin-top: 30px;
+}
+
+.sidebar__divide:after {
+  content: "";
+  border-top: 1px solid var(--border-primary);
+  position: absolute;
+  left: 25px;
+  right: 25px;
+  top: 0;
+}
+
+.sidebar__footer::-webkit-scrollbar {
+  width: 4px;
+  height: 120px;
+}
+.sidebar__footer::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px var(--scroll-thumb-bg);
+}
+
+.sidebar__add-playlist {
+  position: absolute;
+  width: 240px;
+  left: 0;
+  height: 54px;
+  border-top: 1px solid var(--border-primary);
+  padding: 0 25px;
+  border-radius: 0;
+  align-items: center;
+  color: var(--text-primary);
+  font-size: 14px;
+  line-height: normal;
+  font-weight: 700;
+  bottom: 0;
+}
+.sidebar__add-playlist .material-symbols-outlined {
+  opacity: 0.9;
+}
+
+.btn-expanded {
+  width: 40px;
+  height: 40px;
+  background-color: var(--alpha-bg);
+  position: absolute;
+  right: 15px;
+  bottom: 8px;
+  display: var(--sidebar-btn-expanded-display);
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+}
+

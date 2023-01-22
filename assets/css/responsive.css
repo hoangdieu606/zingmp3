@@ -29,6 +29,7 @@
   /* Player root */
   --player-height: 90px;
   --player-bottom: 0;
+  --player-border-top: 1px solid var(--border-player);
   --player-control-primary-flex: 1;
   --player-pc-mobile-display: flex;
   --player-playermedia-width: 30%;
@@ -169,6 +170,8 @@
     /* Player <= 739px */
     --player-height: 50px;
     --player-bottom: 50px;
+    --player-border-top: none;
+
     --player-pc-mobile-display: none;
     --player-control-primary-flex: 0;
     --player-playermedia-width: 100%;

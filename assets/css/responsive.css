@@ -2,6 +2,7 @@
   /* Header root */
   --header-width: calc(100% - 240px);
   --header-btn-arrowleft-arrowright-display: flex;
+  --header-btn-vipsetting-display: flex;
   --header-scroll-bottom: 100%;
   --header-padding: 0 59px;
 
@@ -30,6 +31,17 @@
   --player-height: 90px;
   --player-bottom: 0;
   --player-border-top: 1px solid var(--border-player);
+
+  --player-playing-player-media-translatex: translateX(20px);
+  --player-thumb-note-width-height: 10px;
+  --player-keyframes-motion1-ratio0-translatex: translateX(40px);
+  --player-keyframes-motion1-ratio50-translatex: translateX(55px);
+  --player-keyframes-motion1-ratio100-translatex: translateX(70px);
+  --player-keyframes-motion2-ratio0-translatex: translateX(40px);
+  --player-keyframes-motion2-ratio50-translatex: translateX(57.5px);
+  --player-keyframes-motion2-ratio100-translatex: translateX(75px);
+
+
   --player-control-primary-flex: 1;
   --player-pc-mobile-display: flex;
   --player-playermedia-width: 30%;
@@ -46,6 +58,7 @@
 
   /* Explore content root */
   --explore-gallery-item-width: 33%;
+  --explore-gallery-container-height: calc(56.25%/3);
   --explore-gallery-item-next-prev-opacity: 1;
   --explore-event-child-width: 33.3333%;
   --explore-footer-item-width: 12.5%;
@@ -55,6 +68,7 @@
   --explore-artist-newmusic-display: block;
   --explore-radio-media-btn-display: flex;
   --explore-banner-display: flex;
+
 
   /* Personal root */
   --personal-playlist-child-level-left-width: 50%;
@@ -133,6 +147,9 @@
     --content-padding: 0 29px;
 
     /* Explore content <= 1023px */
+    /* --explore-gallery-item-width: 50%;
+    --explore-gallery-container-height: calc(56.25%/2); */
+  
     --explore-event-child-width: 50%;
     --explore-footer-item-width: 25%;
 
@@ -146,7 +163,7 @@
   :root {
     /* Header <= 739px */
     --header-width: 100%;
-    --header-padding: 0 10px;
+    --header-padding: 0 20px;
     --header-btn-vipsetting-display: none;
     --header-btn-arrowleft-arrowright-display: none;
 
@@ -174,6 +191,16 @@
     --player-height: 50px;
     --player-bottom: 50px;
     --player-border-top: none;
+  --player-playing-player-media-translatex: translateX(5px);
+    --player-thumb-note-width-height: 5px;
+    --player-keyframes-motion1-ratio0-translatex: translateX(20px);
+    --player-keyframes-motion1-ratio50-translatex: translateX(35px);
+    --player-keyframes-motion1-ratio100-translatex: translateX(50px);
+    --player-keyframes-motion2-ratio0-translatex: translateX(20px);
+    --player-keyframes-motion2-ratio50-translatex: translateX(37.5px);
+    --player-keyframes-motion2-ratio100-translatex: translateX(55px);
+
+
 
     --player-pc-mobile-display: none;
     --player-control-primary-flex: 0;
@@ -186,7 +213,7 @@
 
 
     /* Content <= 739px */
-    --content-padding: 0 10px;
+    --content-padding: 0 20px;
     --content-margin-left: 0;
     --content-margin-bottom: calc(
       var(--player-height) + var(--sidebar-height) + 48px
@@ -196,6 +223,8 @@
     --explore-section-mediachild-width: 45%;
     --explore-gallery-item-width: 100%;
     --explore-gallery-item-next-prev-opacity: 0;
+  --explore-gallery-container-height: 56.25%;
+
     --explore-event-child-width: 90%;
     --explore-footer-display: none;
     --explore-footer-item-width: 0;
@@ -203,6 +232,8 @@
     --explore-radio-media-btn-display: none;
     --explore-artistchild-radiochild-width: 45%;
     --explore-banner-display: none;
+    --explore-section-media-overflow: auto;
+    
 
     /* Personal content <= 739px */
     --personal-flex-direction: column;

@@ -1,7 +1,5 @@
 // Theme
-// Theme Select
-
-const themes = {
+const themeData = {
   Dynamic: [
     {
       title: "XONE",
@@ -28,7 +26,7 @@ const themes = {
       imageBg: "./assets/theme/Dynamic/london-bg.jpg",
     },
   ],
- 
+
   Artist: [
     {
       title: "IU",
@@ -188,24 +186,26 @@ const themesBg = {
   },
 };
 
-// Render Theme
-renderThemes(themes);
-function renderThemes(themes) {
-  for (let key in themes) {
-    const themeBody = document.querySelector(".theme__content");
-    const htmls = document.createElement("div");
-    htmls.classList.add("theme__section");
-    htmls.innerHTML = `
-      <div class="theme__style">${key}</div>
-      <div class="theme__parent">
-        <!-- Select Theme -->
-        ${themes[key]
-          .map(
-            (obj) =>
-              `
-            <div class="theme__child">
+// Render Modal theme
+ModalTheme();
+function ModalTheme() {
+  const themeModal = document.querySelector(".theme__modal");
+  let html = "";
+
+  for (let prop in themeData) {
+    html += `
+    <div class="theme__style">${prop}</div>
+    <div class="theme__parent">
+      <!-- Select Theme -->
+      ${themeData[prop]
+        .map(
+          (obj) =>
+            `
+          <div class="theme__child">
             <div class="theme__image" name="${obj.title}">
-              <div class="theme__icon-check"><span class="material-symbols-outlined">check</span></div>
+              <div class="theme__icon-check">
+                  <span class="material-symbols-outlined">check</span>
+              </div>
               <img src="${obj.image}" alt="">
               <div class="opacity">
                   <button class='theme__apply' theme='${obj.theme}' name="${obj.title}">Áp dụng</button>
@@ -214,77 +214,113 @@ function renderThemes(themes) {
             </div>
             <p>${obj.title}</p>
           </div>
-            `
-          )
-          .join("")}
-  
-      `;
-    themeBody.appendChild(htmls);
+          `
+        )
+        .join("")}
+    </div>
+    `;
   }
+  // Render Theme Modal
+  themeModal.innerHTML = `
+      <div class="theme__wrapper">
+          <div class="theme__head">
+            <h3>Giao diện</h3>
+            <button class="btn__ic-close"><span class="material-symbols-outlined">close</span></button>
+          </div>
+        <div class="theme__content">
+          ${html}
+        </div>
+      
+      </div>
+  `;
+
+  // Logic theme modal
+  const btnTheme = document.querySelector(".nav__theme");
+  btnTheme.onclick = () => {
+    const modalTheme = document.querySelector(".theme__modal");
+    const themeWrapper = document.querySelector(".theme__wrapper");
+    const btnClose = document.querySelector(".btn__ic-close");
+    const btnApply = document.querySelectorAll(".theme__apply");
+    const btnPreview = document.querySelectorAll(".theme__preview");
+    const themeImages = document.querySelectorAll(".theme__image");
+    const layout = document.querySelector(".layout");
+    let getTheme = document.documentElement.getAttribute("data-theme");
+    let layoutBg = layout.style.backgroundImage;
+
+    // Show modal theme
+    modalTheme.style.display = "block";
+
+    // Apply theme
+    for (let btn of btnApply) {
+      btn.onclick = () => {
+        const theme = btn.getAttribute("theme");
+        const name = btn.getAttribute("name");
+        document.documentElement.setAttribute("data-theme", theme);
+
+        themeImages.forEach((themeImage) => {
+          themeImage.getAttribute("name") === name
+            ? themeImage.classList.add("active")
+            : themeImage.classList.remove("active");
+        });
+        themesBg[theme]
+          ? (layout.style.backgroundImage = `url(${themesBg[theme].imageBg})`)
+          : (layout.style.backgroundImage = "");
+        modalTheme.style.display = "none";
+
+        // getTheme = document.documentElement.getAttribute("data-theme");
+        // layoutBg = layout.style.backgroundImage;
+
+        // localStorage.setItem(
+        //   "theme",
+        //   JSON.stringify({
+        //     theme: document.documentElement.getAttribute("data-theme"),
+        //     themeBackground: layout.style.backgroundImage,
+        //     name,
+        //   })
+        // );
+
+        // zmp3Storage --> set Storage
+        zmp3Storage.set('theme', {
+          theme: document.documentElement.getAttribute("data-theme"),
+          themeBackground: layout.style.backgroundImage,
+          name,
+        })
+
+
+
+      };
+    }
+
+    // Preview theme
+    for (let btn of btnPreview) {
+      btn.onclick = () => {
+        const theme = btn.getAttribute("theme");
+        document.documentElement.setAttribute("data-theme", theme);
+        themesBg[theme]
+          ? (layout.style.backgroundImage = `url(${themesBg[theme].imageBg})`)
+          : (layout.style.backgroundImage = "");
+      };
+    }
+
+    // Hide modal theme
+    btnClose.onclick = () => {
+      modalTheme.style.display = "none";
+      document.documentElement.setAttribute("data-theme", getTheme);
+      layout.style.backgroundImage = layoutBg;
+    };
+
+    modalTheme.addEventListener("click", btnClose.onclick);
+    themeWrapper.addEventListener("click", (e) => e.stopPropagation());
+  };
 }
 
-const iconThemes = document.querySelector(".nav__theme");
-iconThemes.onclick = () => {
-  const theme = document.querySelector("#theme");
-  const iconTheme = document.querySelector("#theme__icon");
-  const modalTheme = document.querySelector("#modal__theme");
-  const buttonsApply = document.querySelectorAll(".theme__apply");
-  const buttonsPreview = document.querySelectorAll(".theme__preview");
-  const themeImages = document.querySelectorAll(".theme__image");
-  const layout = document.querySelector(".layout");
-  let getTheme = document.documentElement.getAttribute("data-theme");
-  let layoutBg = layout.style.backgroundImage;
 
-  
-  // Show modal theme
-  modalTheme.style.display = "block";
-
-  // Apply theme
-  for (let button of buttonsApply) {
-    button.onclick = () => {
-      const theme = button.getAttribute("theme");
-      const name = button.getAttribute("name");
-      document.documentElement.setAttribute("data-theme", theme);
-
-      themeImages.forEach((themeImage) => {
-        themeImage.getAttribute("name") === name
-          ? themeImage.classList.add("theme__active")
-          : themeImage.classList.remove("theme__active");
-      });
-      themesBg[theme]
-        ? (layout.style.backgroundImage = `url(${themesBg[theme].imageBg})`)
-        : (layout.style.backgroundImage = "");
-      modalTheme.style.display = "none";
-
-      // getTheme = document.documentElement.getAttribute("data-theme");
-      // layoutBg = layout.style.backgroundImage;
-
-      localStorage.setItem('theme', JSON.stringify({
-        theme: document.documentElement.getAttribute("data-theme"),
-        themeBackground: layout.style.backgroundImage,
-        name
-      }))
-    };
+// zmp3Storage
+const zmp3Storage = {
+  get(key) {
+    return JSON.parse(localStorage.getItem(key))
+  },
+  set(key, value) {
+    return localStorage.setItem(key, JSON.stringify(value))
   }
-
-  // Preview theme
-  for (let button of buttonsPreview) {
-    button.onclick = () => {
-      const theme = button.getAttribute("theme");
-      document.documentElement.setAttribute("data-theme", theme);
-      themesBg[theme]
-        ? (layout.style.backgroundImage = `url(${themesBg[theme].imageBg})`)
-        : (layout.style.backgroundImage = "");
-    };
-  }
-
-  // Hide modal theme
-  iconTheme.onclick = () => {
-    modalTheme.style.display = "none";
-    document.documentElement.setAttribute("data-theme", getTheme);
-    layout.style.backgroundImage = layoutBg;
-  };
-
-  modalTheme.addEventListener("click", iconTheme.onclick);
-  theme.addEventListener("click", (e) => e.stopPropagation());
-};
+}

@@ -1,3 +1,103 @@
+.personal {
+  transition: all .6s ease;
+}
+
+.library {
+  display: none;
+  padding-bottom: 22px;
+  transition: display .6s ease;
+
+}
+
+.library.active {
+  display: block;
+}
+
+.library__head {
+  font-size: 32px;
+}
+
+.library__body {
+
+}
+
+.library__subtitle {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.library__albums {
+}
+
+.albums__parent {
+  display: flex;
+  margin: 0 -10px;
+
+}
+
+.albums__child {
+  width: 33.3333%;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.album__image {
+  margin-bottom: 8px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+
+
+
+.album__image figure  {
+  height: 0;
+  padding-bottom: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: all .7s ease;
+}
+.album__image figure:hover {
+  transform: scale(1.1);
+}
+
+.album__name {
+
+}
+
+.album__artist {
+
+}
+
+/* Playlist */
+.playlist {
+  display: none;
+  transition: display .6s ease;
+
+}
+
+.playlist.active {
+  display: block;
+}
+
+.playlist__back {
+  display: flex;
+  max-width: 100px;
+  position: fixed;
+  top: 70px;
+  cursor: pointer;
+}
+
+.playlist__back > * {
+  display: flex;
+  align-items: baseline;
+}
+
+.back__title {
+
+}
+
+
 .playlist__parent {
   display: flex;
   flex-direction: var(--personal-flex-direction);

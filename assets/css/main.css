@@ -14,6 +14,7 @@ body {
   user-select: none;
   /* overflow: hidden overlay; */
 }
+
 input,
 button {
   border: none;
@@ -21,17 +22,19 @@ button {
   color: inherit;
   font: inherit;
   background-color: transparent;
-  
 }
+
 button {
   cursor: pointer;
   font-weight: 400;
   position: relative;
 }
+
 a {
   text-decoration: none;
   color: inherit;
 }
+
 a.active, a:hover {
   color: var(--link-text-hover);
 }
@@ -39,13 +42,16 @@ a.active, a:hover {
 h1, h2, h3, h4, h5, h6 {
     color: inherit;
 }
+
 img {
     width: 100%;
     height: auto;
 }
+
 figure {
   overflow: hidden;
 }
+
 .material-symbols-rounded {
   font-size: 2rem;
   user-select: none;
@@ -68,190 +74,13 @@ figure {
 }
 
 
-/* Modal theme */
-#modal__theme {
-  position: fixed;
-  /* inset: 0; */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--dark-alpha-50);
-  display: none;
-  z-index: 999;
-}
-#theme {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  max-width: 900px;
-  /* min-height: 500px; */
-  max-height: var(--theme-max-height);
 
-  border-radius: 8px;
-  scroll-behavior: smooth;
-  /* padding-bottom: 20px; */
-  background-color: var(--primary-bg);
-  overflow: hidden auto;
-
-}
-
-
-.theme__head {
-  position: relative;
-  padding: var(--theme-head-padding);
-  margin: 0;
-}
-.theme__head h3 {
-  font-size: 24px;
-  font-weight: 700;
-}
-.theme__head button {
-  position: absolute;
-  top: 20px;
-  right: 15px;
-  display: flex;
-  cursor: pointer;
-}
-#theme__icon .material-symbols-outlined {
-  font-size: 33px !important;
-  opacity: 0.6 !important;
-}
-
-.theme__content {
-    max-height: 50vh;
-    min-height: 500px;
-    padding: var(--theme-body-padding);
-    margin: 0 auto;
-}
-.theme__section {
-  display: flex;
-  flex-direction: column;
-}
-.theme__style {
-    font-size: 18px;
-    margin-bottom: 10px;
-    font-weight: 700;
-}
-.theme__parent {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 -7px;
-}
-
-.theme__child {
-  width: var(--theme-themechild-width);
-    padding: 0 7px;
-    margin-bottom: 20px;
-}
-.theme__child p {
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 1.36;
-    padding: 5px 0;
-    color: var(--text-primary);
-    overflow: hidden;
-    text-overflow: ellipsis;
- }
-
- .theme__image {
-    position: relative;
-    display: flex;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    overflow: hidden;
- }
- .theme__image.theme__active {
-  border: 1px solid var(--purple-primary);
- }
- .theme__icon-check {
-    display: none;
-    position: absolute;
-    right: 8px;
-    bottom: 8px;
-    padding: 2px;
-    border-radius: 50%;
-    background-color: var(--purple-primary);
-    color: var(--white);
-    z-index: 10;
-}
-.theme__icon-check .material-symbols-outlined {
-    font-size: 16px !important;
-  }
-.theme__active .theme__icon-check {
-  display: flex;
-}
-
- .theme__image img {
-  height: 66.67%;
-    transition: all ease 0.7s;
-}
- .theme__image:hover img {
-    transform: scale(1.1);
-}
-/* Image Opacity Hover */
-.theme__image .opacity {
-  display: none;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: var(--dark-alpha-50);
-
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.theme__image:hover .opacity {
-  display: flex;
-}
-
-
-.theme__apply,
-.theme__preview {
-  width: 100px;
-  color: var(--white);
-  font-weight: 500;
-  font-size: 8px;
-  text-transform: uppercase;
-  padding: 6px 0;
-  line-height: normal;
-  border: 1px solid var(--purple-primary);
-  border-radius: 999px;
-  cursor: pointer;
-
-}
-.theme__apply,
-.theme__preview  {
-  -webkit-filter: brightness(.9); 
-  filter: brightness(.9);
-}
-.theme__preview {
-  display: var(--theme-preview-display);
-  margin-top: 10px;
-  background-color: rgba(0,0,0,.3);
-  border-color: hsla(0,0%,100%,.5);
-}
-
-.theme__apply {
-  position: var(--theme-apply-position);
-  border-radius: var(--theme-apply-border-radius);
-  background-color: var(--theme-apply-background-color);
-  width: var(--theme-apply-width);
-  color: var(--theme-apply-color);
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
 
 /* Scrool */
 ::-webkit-scrollbar {
   width: 4px;
 }
+
 ::-webkit-scrollbar-thumb {
   border-radius: 4px;
   background-color: var(--scroll-thumb-bg);

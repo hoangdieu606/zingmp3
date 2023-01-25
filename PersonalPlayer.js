@@ -3,59 +3,164 @@ const $$ = document.querySelectorAll.bind(document);
 const player = $(".player-music");
 const personal = $(".personal");
 
-const musicApp = {
-  musicList: [
-    {
-      song: "Yêu Giang Sơn Càng Yêu Mỹ Nhân",
-      artist: "Tiểu A Phong",
-      path: "./assets/music/01.mp3",
-      thumbnail: "./assets/music/images/01.jpg",
-    },
-    {
-      song: "Melody Of The Night",
-      artist: "Jin Shi",
-      path: "./assets/music/02.mp3",
-      thumbnail: "./assets/music/images/02.jpg",
-    },
-    {
-      song: "Tiktok Music",
-      artist: "V.A",
-      path: "./assets/music/03.mp3",
-      thumbnail: "./assets/music/images/03.jpg",
-    },
-    {
-      song: "Star Sky",
-      artist: "Two Steps From Hell",
-      path: "./assets/music/04.mp3",
-      thumbnail: "./assets/music/images/04.jpg",
-    },
-    {
-      song: "Silent Open OST",
-      artist: "Cagnet",
-      path: "./assets/music/05.mp3",
-      thumbnail: "./assets/music/images/05.jpg",
-    },
-    {
-      song: "Windy Hill",
-      artist: "V.A",
-      path: "./assets/music/06.mp3",
-      thumbnail: "./assets/music/images/06.jpg",
-    },
-    {
-      song: "Khởi Hành",
-      artist: "V.A",
-      path: "./assets/music/07.mp3",
-      thumbnail: "./assets/music/images/07.jpg",
-    },
-  ],
+const libraryData = [
+  {
+    name: 'China',
+    artist: 'Nhiều ca sĩ',
+    key: 'album-china',
+    background: "./assets/music/china/images/01.jpg",
+    listMusic: [
+      {
+        song: "A Moment Of Romance",
+        artist: "Viên Phụng Nghi",
+        path: "./assets/music/china/01AMomentOfRomance.mp3",
+        thumbnail: "./assets/music/china/images/01.jpg",
+      },
+      {
+        song: "999 Đóa Hồng",
+        artist: "Trác Y Đình",
+        path: "./assets/music/china/02DoaHong.mp3",
+        thumbnail: "./assets/music/china/images/02.jpg",
+      },
+      {
+        song: "Ảo Mộng Tình Yêu",
+        artist: "Trác Y Đình",
+        path: "./assets/music/china/03AoMongTinhYeu.mp3",
+        thumbnail: "./assets/music/china/images/03.jpg",
+      },
+      {
+        song: "Chờ Trên Tháng Năm",
+        artist: "Lưu Đức Hoa",
+        path: "./assets/music/china/04ChoTrenThangNam.mp3",
+        thumbnail: "./assets/music/china/images/04.jpg",
+      },
+      {
+        song: "Kiếp Ve Sầu",
+        artist: "Trác Y Đình",
+        path: "./assets/music/china/05KiepVeSau.mp3",
+        thumbnail: "./assets/music/china/images/05.jpg",
+      },
+      {
+        song: "Tình Nhạt Phai",
+        artist: "Lưu Đức Hoa",
+        path: "./assets/music/china/06TinhNhatPhai.mp3",
+        thumbnail: "./assets/music/china/images/06.jpg",
+      },
+      {
+        song: "Bến Thượng Hải",
+        artist: "Lưu Đức Hoa",
+        path: "./assets/music/china/07BenThuongHai.mp3",
+        thumbnail: "./assets/music/china/images/07.jpg",
+      },
+    ],
+  },
+  {
+    name: 'Tiktok',
+    artist: 'Nhiều ca sĩ',
+    key: 'album-tiktok',
+    background: "./assets/music/tiktok/images/01.jpg",
+    listMusic: [
+      {
+        song: "Yêu Giang Sơn Càng Yêu Mỹ Nhân",
+        artist: "Tiểu A Phong",
+        path: "./assets/music/tiktok/01.mp3",
+        thumbnail: "./assets/music/tiktok/images/01.jpg",
+      },
+      {
+        song: "Melody Of The Night",
+        artist: "Jin Shi",
+        path: "./assets/music/tiktok/02.mp3",
+        thumbnail: "./assets/music/tiktok/images/02.jpg",
+      },
+      {
+        song: "Tiktok Music",
+        artist: "V.A",
+        path: "./assets/music/tiktok/03.mp3",
+        thumbnail: "./assets/music/tiktok/images/03.jpg",
+      },
+      {
+        song: "Star Sky",
+        artist: "Two Steps From Hell",
+        path: "./assets/music/tiktok/04.mp3",
+        thumbnail: "./assets/music/tiktok/images/04.jpg",
+      },
+      {
+        song: "Silent Open OST",
+        artist: "Cagnet",
+        path: "./assets/music/tiktok/05.mp3",
+        thumbnail: "./assets/music/tiktok/images/05.jpg",
+      },
+      {
+        song: "Windy Hill",
+        artist: "V.A",
+        path: "./assets/music/tiktok/06.mp3",
+        thumbnail: "./assets/music/tiktok/images/06.jpg",
+      },
+      {
+        song: "Khởi Hành",
+        artist: "V.A",
+        path: "./assets/music/tiktok/07.mp3",
+        thumbnail: "./assets/music/tiktok/images/07.jpg",
+      },
+    ],
+  }
+]
 
+// Render Albums
+libraryRender()
+function libraryRender() {
+  personal.innerHTML = `
+    <div class='library active'>
+      <div class='library__head'>
+            <h3>Library</h3>
+      </div>
+      <div class='library__body'>
+        <div class='library__subtitle'>
+            <h5>Đã thêm gần đây</h5>
+        </div>
+        <div class='library__albums'>
+          <div class='albums__parent'>
+            ${
+              libraryData.map(obj => (
+                `
+                <div class='albums__child'>
+                      <div class='album__image'>
+                            <figure style='background-image: url(${obj.background})'></figure>
+                      </div>
+                      <div class='album__name'>
+                            ${obj.name}
+                      </div>
+                      <div class='album__artist'>
+                            ${obj.artist}
+                      </div>
+                </div>
+                `
+              )).join('')
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='playlist'>
+    </div>
+  `
+  $$('.albums__child').forEach((elem, index) => {
+    elem.onclick = () => {
+      musicApp.start(libraryData[index].listMusic, libraryData[index].key, true)
+      zmp3Storage.set('ALBUM_INDEX', index)
+
+      // active playlist, remove active library
+      $('.library').classList.remove('active')
+      $('.playlist').classList.add('active')
+    }
+  })
+}
+
+// musicApp
+
+const musicApp = {
   // Variable
-  indexSong: JSON.parse(localStorage.getItem("indexSong")) || 0,
-  indexBtnRepeat: JSON.parse(localStorage.getItem("indexBtnRepeat")) || 0,
-  indexBtnShuffle: JSON.parse(localStorage.getItem("indexBtnShuffle")) || 0,
-  arrShuffle: JSON.parse(localStorage.getItem("arrShuffle")) || [],
   isMouse: false,
-  ratioVolume: 70,
 
   // TrackBarRender
   trackThumbRender(ratio, track) {
@@ -157,64 +262,65 @@ const musicApp = {
     const durationTrack = $(".duration__track");
     const timeLeft = $(".time.left");
     const inputDuration = $(".input__duration");
-    const btnPlay = $('.btn__play')
+    const btnPlay = $(".btn__play");
 
-
-    const currentTime = JSON.parse(localStorage.getItem("currentTime"));
     const volumeTrack = $(".volume__track");
     const audio = $(".info__audio-current");
-    const btnVolume = $('.btn__volume')
-    const volumeStorage = JSON.parse(localStorage.getItem("volume"));
+    const btnVolume = $(".btn__volume");
+    const currentTime = zmp3Storage.get(this.keyStorage).currentTime;
+    const volumeCurrent = zmp3Storage.get(this.keyStorage).volumeCurrent;
+    const volumeMuted = zmp3Storage.get(this.keyStorage).volumeMuted;
 
 
-    if(currentTime) {
-      audio.currentTime = currentTime
+    if (currentTime) {
+      audio.currentTime = currentTime;
       let ratioTime = (currentTime / audio.duration) * 100;
-        !ratioTime && (ratioTime = 0);
+      !ratioTime && (ratioTime = 0);
 
-        timeLeft.textContent = this.formatTime(currentTime);
-        durationTrack.style = this.trackThumbRender(ratioTime, true);
-        // Audio Timeupdate -- ratioBar
-        let ratioBar = (ratioTime / 100) * durationTrack.offsetWidth;
-        durationTrack.innerHTML = this.trackThumbRender(ratioBar);
-        inputDuration.value = ratioTime;
+      timeLeft.textContent = this.formatTime(currentTime);
+      durationTrack.style = this.trackThumbRender(ratioTime, true);
+      // Audio Timeupdate -- ratioBar
+      let ratioBar = (ratioTime / 100) * durationTrack.offsetWidth;
+      durationTrack.innerHTML = this.trackThumbRender(ratioBar);
+      inputDuration.value = ratioTime;
     }
     volumeTrack.style = this.trackThumbRender(
-      (volumeStorage ? volumeStorage.volumeCurrent : 0.7) * 100,
+      (volumeCurrent ? volumeCurrent : 0.7) * 100,
       true
     );
     volumeTrack.innerHTML = this.trackThumbRender(
-      (volumeStorage ? volumeStorage.volumeCurrent : 0.7) *
-        volumeTrack.offsetWidth
+      (volumeCurrent ? volumeCurrent : 0.7) * volumeTrack.offsetWidth
     );
-    audio.volume = volumeStorage ? volumeStorage.volumeCurrent : 0.7;
+    audio.volume = volumeCurrent ? volumeCurrent : 0.7;
 
-    if (volumeStorage && volumeStorage.volumeMuted) {
+    if (volumeMuted) {
       volumeTrack.style = this.trackThumbRender(0, true);
       volumeTrack.innerHTML = this.trackThumbRender(0);
-      btnVolume.innerHTML = icon.volumeMute
-      audio.volume = 0
+      btnVolume.innerHTML = icon.volumeMute;
+      audio.volume = 0;
     }
 
-// Window matches mobile 739px
-    if(window.matchMedia('(max-width: 740px)').matches) {
-      btnPlay.innerHTML = icon.playArrow
-      $('.player__image').classList.add('thumb__mobile')
+    // Window matches mobile 739px
+    if (window.matchMedia("(max-width: 740px)").matches) {
+      btnPlay.innerHTML = icon.playArrow;
+      $(".player__image").classList.add("thumb__mobile");
     } else {
-      btnPlay.innerHTML = icon.playRounded
-      $('.player__image').classList.remove('thumb__mobile')
+      btnPlay.innerHTML = icon.playRounded;
+      $(".player__image").classList.remove("thumb__mobile");
     }
-
-
   },
 
   // Playlist Render
   playListRender() {
-    personal.innerHTML = `
+    $('.playlist').innerHTML = `
+        <div class='playlist__back'>
+              ${icon.arrowBack}
+              <span class='back__title'>Library</span>
+        </div>
         <div class='playlist__parent'>
             <div class='playlist__slide'>
                 <div class='slide__wrapper'>
-                    ${this.musicList
+                    ${this.album
                       .map(
                         (obj) =>
                           `
@@ -233,7 +339,7 @@ const musicApp = {
                 <div class=''>Tùy chọn</div>
             </div>
 
-                ${this.musicList
+                ${this.album
                   .map(
                     (obj) =>
                       `
@@ -275,11 +381,12 @@ const musicApp = {
         elem.textContent = this.formatTime($$(".info__audio")[index].duration);
       };
     });
-  },
 
-  // LocalSrorage
-  Storage(key, value) {
-    localStorage.setItem(key, JSON.stringify(value));
+    // playlist__back
+    $('.playlist__back').onclick = () => {
+      $('.library').classList.add('active')
+      $('.playlist').classList.remove('active')
+    }
   },
 
   // AutoRun Slide Item
@@ -323,7 +430,7 @@ const musicApp = {
 
   // Set Current Song
   curentSong() {
-    let currentSong = this.musicList[this.indexSong];
+    let currentSong = this.album[this.indexSong];
     $(
       ".player .media__thumbnail"
     ).innerHTML = `<img src='${currentSong.thumbnail}'>`;
@@ -332,6 +439,7 @@ const musicApp = {
     ).innerHTML = ` <span>${currentSong.song}</span> <span>${currentSong.song}</span>`;
     $(".info__artist-current").textContent = currentSong.artist;
     $(".info__audio-current").src = currentSong.path;
+    this.autoplay && $(".info__audio-current").play()
 
     // Set Current Song -- Active Current Song
     $$(".playlist__child").forEach((elem, index) => {
@@ -342,12 +450,16 @@ const musicApp = {
       }
     });
 
+
     // Set Current Song -- Set btn_playing Playlist
     $$(".btn__playing").forEach((elem) => (elem.innerHTML = icon.playArrow));
 
     // Set Current Song -- Set Local Storage
-    this.Storage("indexSong", this.indexSong);
-    this.Storage("arrShuffle", this.arrShuffle);
+    zmp3Storage.set(this.keyStorage, {
+      ...zmp3Storage.get(this.keyStorage),
+      indexSong: this.indexSong,
+      arrShuffle: this.arrShuffle,
+    });
   },
 
   // Check IndexRepeat
@@ -375,12 +487,12 @@ const musicApp = {
   shuffleSong() {
     let indexShuffle;
     do {
-      indexShuffle = Math.floor(Math.random() * this.musicList.length);
+      indexShuffle = Math.floor(Math.random() * this.album.length);
     } while (this.arrShuffle.includes(indexShuffle));
 
     this.indexSong = indexShuffle;
     this.arrShuffle.push(indexShuffle);
-    this.arrShuffle.length === this.musicList.length && (this.arrShuffle = []);
+    this.arrShuffle.length === this.album.length && (this.arrShuffle = []);
   },
 
   // Format time
@@ -416,6 +528,7 @@ const musicApp = {
     const btnQueue = $(".btn__queue");
 
     const btnsPlaying = $$(".btn__playing");
+    const windowMatches739px = window.matchMedia("(max-width: 740px)");
 
     // ListenEvent -- btnPlay click
     btnPlay.onclick = () => {
@@ -428,10 +541,13 @@ const musicApp = {
         this.shuffleSong();
       } else {
         this.indexSong++;
-        this.indexSong === this.musicList.length && (this.indexSong = 0);
+        this.indexSong === this.album.length && (this.indexSong = 0);
       }
       this.curentSong();
-      btnPlay.innerHTML === icon.playRounded ? audio.pause() : audio.play();
+      btnPlay.innerHTML === icon.playRounded ||
+      btnPlay.innerHTML === icon.playArrow
+        ? audio.pause()
+        : audio.play();
     };
 
     // ListenEvent -- btnPrev click
@@ -440,10 +556,13 @@ const musicApp = {
         this.shuffleSong();
       } else {
         this.indexSong--;
-        this.indexSong < 0 && (this.indexSong = this.musicList.length - 1);
+        this.indexSong < 0 && (this.indexSong = this.album.length - 1);
       }
       this.curentSong();
-      btnPlay.innerHTML === icon.playRounded ? audio.pause() : audio.play();
+      btnPlay.innerHTML === icon.playRounded ||
+      btnPlay.innerHTML === icon.playArrow
+        ? audio.pause()
+        : audio.play();
     };
 
     // ListenEvent -- btnRepeat click
@@ -459,7 +578,11 @@ const musicApp = {
         btnRepeat.innerHTML = icon.repeat;
       }
 
-      this.Storage("indexBtnRepeat", this.indexBtnRepeat);
+      // set localStorage
+      zmp3Storage.set(this.keyStorage, {
+        ...zmp3Storage.get(this.keyStorage),
+        indexBtnRepeat: this.indexBtnRepeat,
+      });
     };
 
     // ListenEvent -- btnShuffle onclick
@@ -471,7 +594,11 @@ const musicApp = {
         ? btnShuffle.classList.remove("active")
         : btnShuffle.classList.add("active");
 
-      this.Storage("indexBtnShuffle", this.indexBtnShuffle);
+      // set localStorage
+      zmp3Storage.set(this.keyStorage, {
+        ...zmp3Storage.get(this.keyStorage),
+        indexBtnShuffle: this.indexBtnShuffle,
+      });
     };
 
     // ListenEvent -- btnsPlaying onclick
@@ -487,26 +614,28 @@ const musicApp = {
 
     // ListenEvent -- Audio Onplay
     audio.onplay = () => {
+      console.log('audio.onplay')
       btnPlay.innerHTML = icon.pauseRounded;
-      player.classList.add("playing");
+      // player.classList.add("playing");
       btnsPlaying[this.indexSong].innerHTML = icon.iconPlaying;
 
-        // Window matches mobile 739px
-    if(window.matchMedia('(max-width: 739px)').matches) {
-      btnPlay.innerHTML = icon.pause
-    }
+      // Window matches mobile 739px
+      if (window.matchMedia("(max-width: 739px)").matches) {
+        btnPlay.innerHTML = icon.pause;
+      }
     };
     // ListenEvent -- Audio Onpause
     audio.onpause = () => {
+      console.log('audio.onpause')
+
       btnPlay.innerHTML = icon.playRounded;
-      player.classList.remove("playing");
+      // player.classList.remove("playing");
       btnsPlaying[this.indexSong].innerHTML = icon.playArrow;
 
       // Window matches mobile 739px
-    if(window.matchMedia('(max-width: 739px)').matches) {
-      btnPlay.innerHTML = icon.playArrow
-    }
-
+      if (window.matchMedia("(max-width: 739px)").matches) {
+        btnPlay.innerHTML = icon.playArrow;
+      }
     };
 
     // ListenEvent -- Audio Onended
@@ -515,13 +644,12 @@ const musicApp = {
         audio.play();
       } else if (
         this.indexBtnRepeat === 0 &&
-        this.indexSong === this.musicList.length - 1
+        this.indexSong === this.album.length - 1
       ) {
         audio.pause();
       } else {
-        this.indexSong++;
-        this.curentSong();
-        audio.play();
+        btnNext.click();
+        audio.paused && audio.play();
       }
     };
 
@@ -533,10 +661,11 @@ const musicApp = {
     // ListenEvent -- Audio Timeupdate
     audio.ontimeupdate = () => {
       if (!this.isMouse) {
-        let ratioTime = (audio.currentTime / audio.duration) * 100;
+        let currentTime = audio.currentTime;
+        let ratioTime = (currentTime / audio.duration) * 100;
         !ratioTime && (ratioTime = 0);
 
-        timeLeft.textContent = this.formatTime(audio.currentTime);
+        timeLeft.textContent = this.formatTime(currentTime);
         durationTrack.style = this.trackThumbRender(ratioTime, true);
         // Audio Timeupdate -- ratioBar
         let ratioBar = (ratioTime / 100) * durationTrack.offsetWidth;
@@ -544,9 +673,21 @@ const musicApp = {
         inputDuration.value = ratioTime;
 
         // Audio Timeupdate -- setLocalStorage
-        this.Storage("currentTime", audio.currentTime);
+        zmp3Storage.set(this.keyStorage, {
+          ...zmp3Storage.get(this.keyStorage),
+          currentTime,
+        });
       }
+
+         // audio.paused
+    if(audio.paused) {
+      player.classList.remove("playing");
+    } else {
+      player.classList.add("playing");
+    }
     };
+
+ 
 
     // ListenEvent -- inputDuration__Mousedown
     inputDuration.onmousedown = () => {
@@ -570,7 +711,10 @@ const musicApp = {
       audio.currentTime = (e.target.value / 100) * audio.duration;
 
       // ListenEvent -- inputDuration__setLocalStorage
-      this.Storage("currentTime", audio.currentTime);
+      zmp3Storage.set(this.keyStorage, {
+        ...zmp3Storage.get(this.keyStorage),
+        currentTime: audio.currentTime,
+      });
     };
 
     // ListenEvent -- btnVolume onclick
@@ -593,7 +737,8 @@ const musicApp = {
       }
 
       // set LocalStorage
-      this.Storage("volume", {
+      zmp3Storage.set(this.keyStorage, {
+        ...zmp3Storage.get(this.keyStorage),
         volumeCurrent: audio.volume,
         volumeMuted: audio.muted,
       });
@@ -614,15 +759,34 @@ const musicApp = {
         : (btnVolume.innerHTML = icon.volumeMute);
 
       // set LocalStorage
-      this.Storage("volume", {
+      zmp3Storage.set(this.keyStorage, {
+        ...zmp3Storage.get(this.keyStorage),
         volumeCurrent: audio.volume,
         volumeMuted: audio.muted,
       });
     };
+
+    // Window matches mobile 739px
+    windowMatches739px.onchange = () => {
+      if (windowMatches739px.matches) {
+        btnPlay.innerHTML = audio.paused ? icon.playArrow : icon.pause;
+      } else {
+        btnPlay.innerHTML = audio.paused ? icon.playRounded : icon.pauseRounded;
+      }
+    };
   },
 
   //   Start app
-  start() {
+  start(album, keyStorage, autoplay) {
+    this.album = album;
+    this.keyStorage = keyStorage
+    this.indexSong = zmp3Storage.get(keyStorage).indexSong || 0
+    this.indexBtnRepeat = zmp3Storage.get(keyStorage).indexBtnRepeat || 0
+    this.indexBtnShuffle = zmp3Storage.get(keyStorage).indexBtnShuffle || 0
+    this.arrShuffle = zmp3Storage.get(keyStorage).arrShuffle || []
+    this.autoplay = autoplay ? this.autoplay = true : this.autoplay = false
+
+
     this.PlayerRender();
     this.playListRender();
     this.curentSong();
@@ -630,20 +794,12 @@ const musicApp = {
     this.autoRunSlide();
     this.checkIndexRepeat();
     this.checkIndexShuffle();
+
+    player.style.display = 'flex'
   },
 };
 
-musicApp.start();
 
-// Window matches mobile 739px
-let windowMatches739px = window.matchMedia('(max-width: 740px)')
-windowMatches739px.onchange = () => {
-  if(windowMatches739px.matches) {
-    $('.player__image').classList.add('thumb__mobile')
-    $('.btn__play').innerHTML = icon.playArrow
-  } else {
-    $('.player__image').classList.remove('thumb__mobile')
-    $('.btn__play').innerHTML = icon.playRounded
-  }
-
-}
+// if has key Storage run musicApp
+const ALBUM_INDEX = zmp3Storage.get('ALBUM_INDEX')
+ALBUM_INDEX !== null && musicApp.start(libraryData[ALBUM_INDEX].listMusic, libraryData[ALBUM_INDEX].key)

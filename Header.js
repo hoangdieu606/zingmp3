@@ -1,3 +1,4 @@
+
 // Settings Data
 const settingData = [
   {
@@ -117,10 +118,14 @@ const searchData = {
   ],
 };
 
+
+
+
+
 // Render Header
 const headerTag = document.querySelector(".header");
-headerTag.innerHTML = Header(headerIcon, navRightData, searchData);
-function Header(headerIcon, navRightData, searchData) {
+headerTag.innerHTML = Header();
+function Header() {
   return `
 <div class="nav-left">
   <button class="arrow__left">
@@ -139,7 +144,7 @@ function Header(headerIcon, navRightData, searchData) {
       ${headerIcon.iconSearch}
     </button>
     <!-- Tippy search -->
-    <div class="search__suggest">
+    <div class="tippys search__suggest">
         ${TippySearch(searchData)}
     </div>
     </form>
@@ -206,7 +211,7 @@ function TippySearch(searchData) {
 // Render Settings Menu
 function SettingsMenu(settingData) {
   return `
-        <div class="settings__menu">
+        <div class="tippys settings__menu">
             ${settingData
               .map(
                 (obj) =>

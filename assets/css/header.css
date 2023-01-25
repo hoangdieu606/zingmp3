@@ -77,21 +77,33 @@
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
   background-color: var(--primary-bg);
 }
-.search__suggest {
+
+.search.active {
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  background-color: var(--primary-bg);
+}
+
+/* search__suggest */
+.search .search__suggest {
+  display: none;
   position: absolute;
   overflow: hidden;
   width: 100%;
   left: 0;
   height: auto;
   min-height: 0;
-  background-color: var(--primary-bg);
-  z-index: 5;
-  display: none;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  box-shadow: 0 4px 6px 0 rgba(32, 33, 36, 0.28);
   padding: 13px 10px;
+  background-color: var(--primary-bg);
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 4px 6px 0 rgba(32, 33, 36, 0.28);
+  z-index: 5;
 }
+
+.search.active .search__suggest {
+  display: block;
+}
+
 .search__suggest--content {
   max-height: calc(100vh - 180px);
   overflow-y: auto;
@@ -178,7 +190,8 @@
 .nav__setting {
   position: relative;
 }
-.settings__menu {
+
+.nav__setting .settings__menu {
   background-color: var(--primary-bg);
   border-radius: 8px;
   position: absolute;
@@ -191,6 +204,11 @@
   z-index: 99;
   display: none;
 }
+
+.nav__setting.active .settings__menu {
+  display: block;
+}
+
 .menu__list {
   display: flex;
   align-items: center;

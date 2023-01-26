@@ -31,13 +31,14 @@
 
 .albums__parent {
   display: flex;
+  flex-wrap: wrap;
   margin: 0 -10px;
 
 }
 
 .albums__child {
-  width: 33.3333%;
-  padding: 0 10px;
+  width: var(--personal-albums-child-width);
+  padding: 10px;
   cursor: pointer;
 }
 

@@ -71,6 +71,7 @@
 
 
   /* Personal root */
+  --personal-albums-child-width: 33.3333%;
   --personal-playlist-child-level-left-width: 50%;
   --personal-playlist-slide-width: 290px;
   --personal-playlist-media-right-display: flex;
@@ -237,6 +238,7 @@
 
     /* Personal content <= 739px */
     --personal-flex-direction: column;
+    --personal-albums-child-width: 50%;
     --personal-playlist-media-right-display: none;
     --personal-playlist-child-level-left-width: 80%;
     --personal-playlist-slide-width: 100%;

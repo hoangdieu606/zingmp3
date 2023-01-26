@@ -103,6 +103,50 @@ const libraryData = [
         thumbnail: "./assets/music/tiktok/images/07.jpg",
       },
     ],
+  },
+  {
+    name: 'China 2',
+    artist: 'Nhiều ca sĩ',
+    key: 'album-china-2',
+    background: "./assets/music/china2/images/a.jpg",
+    listMusic: [
+      {
+        song: "Túy hồng trần - Remix",
+        artist: "Ngụy Tân Vũ",
+        path: "./assets/music/china2/a.mp3",
+        thumbnail: "./assets/music/china2/images/a.jpg",
+      },
+      {
+        song: "Thương ly biệt - Remix",
+        artist: "Ngụy Tân Vũ",
+        path: "./assets/music/china2/b.mp3",
+        thumbnail: "./assets/music/china2/images/b.jpg",
+      },
+      {
+        song: "Là tự em đa tình",
+        artist: "Hồ Dương Lâm",
+        path: "./assets/music/china2/c.mp3",
+        thumbnail: "./assets/music/china2/images/c.jpg",
+      },
+      {
+        song: "Họa tâm",
+        artist: "Trương Lương Dĩnh",
+        path: "./assets/music/china2/d.mp3",
+        thumbnail: "./assets/music/china2/images/d.jpg",
+      },
+      {
+        song: "Luân hồi chi cảnh",
+        artist: "Critty",
+        path: "./assets/music/china2/e.mp3",
+        thumbnail: "./assets/music/china2/images/e.jpg",
+      },
+      {
+        song: "Phù dung chớm nở, mưa đúng lúc",
+        artist: "Châu Thâm - Trịnh Vân Long",
+        path: "./assets/music/china2/f.mp3",
+        thumbnail: "./assets/music/china2/images/f.jpg",
+      },
+    ],
   }
 ]
 
@@ -267,9 +311,9 @@ const musicApp = {
     const volumeTrack = $(".volume__track");
     const audio = $(".info__audio-current");
     const btnVolume = $(".btn__volume");
-    const currentTime = zmp3Storage.get(this.keyStorage).currentTime;
-    const volumeCurrent = zmp3Storage.get(this.keyStorage).volumeCurrent;
-    const volumeMuted = zmp3Storage.get(this.keyStorage).volumeMuted;
+    const currentTime = zmp3Storage.get(this.keyStorage)?.currentTime;
+    const volumeCurrent = zmp3Storage.get(this.keyStorage)?.volumeCurrent;
+    const volumeMuted = zmp3Storage.get(this.keyStorage)?.volumeMuted;
 
 
     if (currentTime) {
@@ -780,10 +824,10 @@ const musicApp = {
   start(album, keyStorage, autoplay) {
     this.album = album;
     this.keyStorage = keyStorage
-    this.indexSong = zmp3Storage.get(keyStorage).indexSong || 0
-    this.indexBtnRepeat = zmp3Storage.get(keyStorage).indexBtnRepeat || 0
-    this.indexBtnShuffle = zmp3Storage.get(keyStorage).indexBtnShuffle || 0
-    this.arrShuffle = zmp3Storage.get(keyStorage).arrShuffle || []
+    this.indexSong = zmp3Storage.get(keyStorage)?.indexSong || 0
+    this.indexBtnRepeat = zmp3Storage.get(keyStorage)?.indexBtnRepeat || 0
+    this.indexBtnShuffle = zmp3Storage.get(keyStorage)?.indexBtnShuffle || 0
+    this.arrShuffle = zmp3Storage.get(keyStorage)?.arrShuffle || []
     this.autoplay = autoplay ? this.autoplay = true : this.autoplay = false
 
 

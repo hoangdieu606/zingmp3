@@ -12,14 +12,19 @@
   background-size: cover;
   z-index: 88;
   cursor: pointer;
-  padding: 0 20px;
 
   display: none;
   align-items: center;
   overflow: hidden;
+  transition: all 0.7s ease;
 }
 .player {
   width: 100%;
+  padding: 0 20px;
+
+}
+
+.player__wrapper {
 }
 
 .level {
@@ -37,6 +42,8 @@
 }
 .player__control-primary {
   flex: var(--player-control-primary-flex);
+  display: flex;
+  flex-direction: column;
 }
 
 .player__control-secondary {
@@ -152,7 +159,7 @@
   overflow: hidden;
 }
 
-.info__song, .album__name {
+.info__song, .album__name, .back__title {
   font-size: 14px;
   font-weight: 500;
   line-height: 1.36;
@@ -339,7 +346,7 @@ input[type="range"] {
   padding: 8px;
   margin: 0 2px;
 }
-.player__control-secondary > button:last-child {
+.player__control-secondary .btn__queue {
   position: relative;
   background-color: hsla(0, 0%, 100%, 0.1);
   border-radius: 4px;
@@ -347,8 +354,6 @@ input[type="range"] {
   line-height: 30px;
   padding: 0 5px;
   border: 1px solid transparent;
-  /* font-weight: 500; */
-  /* color: var(--player-text); */
   font-size: 12px;
   margin: 0;
 }
@@ -394,4 +399,201 @@ input[type="range"] {
 .btn__prev,
 .btn__repeat {
   display: var(--player-pc-mobile-display);
+}
+
+/* Nowplaying active */
+.player__btn-close {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.player__ic-close {
+  width: 60px;
+  height: 6px;
+  border-radius: 8px;
+  background-color: gray;
+}
+
+.player-music.now-playing {
+  bottom: 0;
+  height: 100vh;
+  /* max-width: 600px; */
+
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.now-playing .player__btn-close {
+  display: flex;
+}
+
+.now-playing .player {
+  height: 100%;
+  backdrop-filter: blur(30px) brightness(0.6);
+  --progressbar-active-bg: #fff;
+}
+
+.now-playing .player__wrapper {
+  max-width: 600px;
+  height: 100%;
+  position: relative;
+  flex-direction: column;
+  padding-bottom: 60px;
+  margin: auto;
+  --progressbar-active-bg: #fff;
+}
+
+element.style {
+  border-radius: 4px;
+  background: linear-gradient( to right, var(--progressbar-active-bg) 0%, var(--progressbar-active-bg) 86%, var(--progressbar-player-bg) 86%, var(--progressbar-player-bg) 100% );
+}
+.now-playing .player .media__right,
+.now-playing .time.left,
+.now-playing .time.right,
+.now-playing .player__control-secondary,
+.now-playing .btn__shuffle,
+.now-playing .btn__prev,
+.now-playing .btn__repeat {
+  display: flex;
+}
+
+.now-playing .btn__movie,
+.now-playing .btn__mic,
+.now-playing .btn__window,
+.now-playing .music__divide
+ {
+  display: none;
+}
+
+.now-playing .player__media {
+  /* flex-direction: column; */
+  width: 100%;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.now-playing .media__info
+ {
+  width: 80%;
+  
+}
+
+.now-playing .media__image {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-right: 0;
+}
+
+.now-playing .media__thumbnail {
+  width: 250px;
+  height: 250px;
+  margin: 70px 0 30px;
+}
+
+/* Primary */
+.now-playing .player__control-primary {
+  width: 100%;
+  flex-grow: unset;
+  margin-bottom: 15px;
+
+}
+
+.now-playing .music__action {
+  order: 1;
+  justify-content: space-evenly;
+
+}
+
+.now-playing .btn__prev .material-symbols-rounded,
+.now-playing .btn__next .material-symbols-rounded
+ {
+  font-size: 36px !important;
+}
+
+.now-playing .btn__play .material-symbols-rounded,
+.now-playing .btn__play .material-symbols-outlined
+ {
+  font-size: 48px !important;
+}
+
+.now-playing .music__timeline {
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.now-playing .timeline__duration {
+  position: unset;
+  width: 100%;
+  order: -1;
+  flex: 0 0 auto;
+}
+
+.now-playing .music__timeline .time {
+  min-width: 0;
+}
+
+.now-playing .thumb__bar {
+  visibility: visible;
+}
+
+.now-playing .track__wrapper:hover .thumb__bar {
+  visibility: visible;
+}
+
+
+
+
+.now-playing .btn__shuffle,
+.now-playing .btn__repeat,
+.now-playing .btn__queue
+ {
+  position: absolute;
+  bottom: 20px;
+}
+
+.now-playing .btn__shuffle {
+  left: 20%;
+  transform: translateX(-20%);
+}
+
+.now-playing .btn__repeat {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.now-playing .btn__queue {
+  left: 80%;
+  transform: translateX(-80%);
+}
+
+/* Secondary */
+.now-playing .player__control-secondary {
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.now-playing .music__volume {
+  width: 100%;
+  /* padding-bottom: 15px; */
+}
+
+.now-playing .volume__track {
+  width: 100%;
+}
+
+.now-playing .music__volume > button {
+  padding: 3px 0;
+  margin-right: 20px;
 }

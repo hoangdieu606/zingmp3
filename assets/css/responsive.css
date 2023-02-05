@@ -5,6 +5,8 @@
   --header-btn-vipsetting-display: flex;
   --header-scroll-bottom: 100%;
   --header-padding: 0 59px;
+  /* --header-justify-content */
+--header-nav-left-display: flex;
 
   /* Sidebar root */
   --sidebar-width: 240px;

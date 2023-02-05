@@ -3,6 +3,7 @@
 .header {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   position: fixed;
   right: 0;
   top: 0;
@@ -28,7 +29,7 @@
 }
 
 .nav-left {
-  display: flex;
+  display: var(--header-nav-left-display);
   flex-grow: 1;
   align-items: center;
   margin-right: 10px;

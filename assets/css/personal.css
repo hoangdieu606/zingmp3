@@ -83,15 +83,20 @@
 
 .playlist__back {
   display: flex;
-  max-width: 100px;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
   position: fixed;
-  top: 70px;
+  top: 20px;
+  background-color: var(--alpha-bg);
+  border-radius: 999px;
   cursor: pointer;
+  z-index: 15;
 }
 
 .playlist__back > * {
   display: flex;
-  align-items: baseline;
 }
 
 .back__title {
@@ -260,3 +265,36 @@
 }
 
 /* Playlist */
+
+
+/* Playing Modal */
+
+.playing__modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 100%;
+  background-color: blueviolet;
+  overflow: hidden;
+  transition: all 0.7s ease;
+  z-index: 1000;
+}
+
+.playing__btn-close {
+  width: 100%;
+  height: 40px;
+  position: relative;
+  border: 1px solid;
+}
+
+.playing__btn-close-ic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 6px;
+  border-radius: 999px;
+  background-color: yellow;
+}

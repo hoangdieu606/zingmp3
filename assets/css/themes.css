@@ -452,17 +452,19 @@
 /* Dark Other theme */
 /* Dark Other__XONE */
 [data-theme="xone"] {
-  --miniplayer-bg-img: url("../theme/Other/xone-miniplayer.jpg");
+  --miniplayer-bg-img: url("../theme/Dynamic/xone-miniplayer.jpg");
+  --miniplayer-bg-img-root: url("./assets/theme/Dynamic/xone-miniplayer.jpg");
   --purple-primary: #d1ab00;
   --primary-bg: #363636;
   --progressbar-active-bg: #d7cb1f;
   --link-text-hover: #e5bb00;
-  --header-bg-img: url("../theme/Other/xone-header.jpg");
+  --header-bg-img: url("../theme/Dynamic/xone-header.jpg");
 }
 
 /* Dark Other__ZingMusicAwards */
 [data-theme="zma"] {
-  --miniplayer-bg-img: url("../theme/Other/zma-miniplayer.png");
+  --miniplayer-bg-img: url("../theme/Dynamic/zma-miniplayer.png");
+  --miniplayer-bg-img-root: url("./assets/theme/Dynamic/zma-miniplayer.png");
   --layout-bg: #37075d;
   --layout-header-bg: rgba(55, 7, 93, 0.8);
   --queue-player-popup-bg: #5d218c;

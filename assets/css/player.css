@@ -438,6 +438,7 @@ input[type="range"] {
 .now-playing .player {
   height: 100%;
   backdrop-filter: blur(30px) brightness(0.6);
+  -webkit-backdrop-filter: blur(30px) brightness(0.6);
   --progressbar-active-bg: #fff;
 }
 

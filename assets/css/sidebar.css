@@ -49,6 +49,7 @@
 /* Sidebar body */
 .sidebar__body {
   display: var(--sidebar-body-display);
+  height: 100%;
 }
 
 

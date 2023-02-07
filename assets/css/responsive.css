@@ -31,6 +31,8 @@
 
   /* Player root */
   --player-height: 90px;
+
+  --player-padding: 0 20px;
   --player-bottom: 0;
   --player-border-top: 1px solid var(--border-player);
 
@@ -46,6 +48,8 @@
 
   --player-control-primary-flex: 1;
   --player-pc-mobile-display: flex;
+  --player-media-right-display: flex;
+  --player-btn-mic-movie-window-display: flex;
   --player-playermedia-width: 30%;
   --player-media-thumbnail-width-height: 64px;
   --player-btnplay-material-fontsize: 48px !important;
@@ -101,6 +105,17 @@
     /* Explore content <= 1350px */
     --explore-section-mediachild-width: 25%;
 
+    /* Personal */
+    --personal-playlist-child-level-left-width: 80%;
+    --personal-playlist-media-right-display: none;
+    --personal-playlist-child-lastchild-display: none;
+
+
+
+  --player-padding: 0 200px;
+  --player-media-right-display: none;
+
+
     /* Theme <= 1350px */
     --theme-themechild-width: 25%;
   }
@@ -111,6 +126,9 @@
   :root {
     --explore-newmusic-primarychild-width: 50%;
     --explore-artistchild-radiochild-width: 20%;
+
+    /* Player */
+    --player-btn-mic-movie-window-display: none !important;
   }
 }
 
@@ -213,6 +231,7 @@
     --player-track-wrapper-position: absolute;
     --player-track-hover-height: 3px;
     --player-track-hover-thumb-display: hidden;
+    --player-input-range-display: none;
 
 
     /* Content <= 739px */
@@ -241,10 +260,7 @@
     /* Personal content <= 739px */
     --personal-flex-direction: column;
     --personal-albums-child-width: 50%;
-    --personal-playlist-media-right-display: none;
-    --personal-playlist-child-level-left-width: 80%;
     --personal-playlist-slide-width: 100%;
-    --personal-playlist-child-lastchild-display: none;
 
     /* Theme <= 739px */
     --theme-max-height: 400px;

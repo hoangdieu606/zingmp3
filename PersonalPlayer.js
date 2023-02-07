@@ -909,14 +909,17 @@ const musicApp = {
     this.checkIndexRepeat();
     this.checkIndexShuffle();
 
-    player.style.display = "flex";
+    // player.style.display = "flex";
+    player.classList.add('active')
   },
 };
 
 // if has key Storage run musicApp
 const ALBUM_INDEX = zmp3Storage.get("ALBUM_INDEX");
-ALBUM_INDEX !== null &&
-  musicApp.start(
-    libraryData[ALBUM_INDEX].listMusic,
-    libraryData[ALBUM_INDEX].key
-  );
+
+  if(ALBUM_INDEX !== null) {
+    musicApp.start(
+      libraryData[ALBUM_INDEX].listMusic,
+      libraryData[ALBUM_INDEX].key
+    )
+  }

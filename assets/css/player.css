@@ -1,4 +1,5 @@
 /* Player*/
+
 .player-music {
   position: fixed;
   bottom: var(--player-bottom);
@@ -29,6 +30,9 @@
 }
 
 .player__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .level {
@@ -44,17 +48,19 @@
 .level__center {
   flex: 1;
 }
-.player__control-primary {
+.player__control {
   flex: var(--player-control-primary-flex);
   display: flex;
   flex-direction: column;
 }
 
-.player__control-secondary {
+.player__subcontrol {
   width: 30%;
 }
 
 .player__media {
+  display: flex;
+  align-items: center;
   width: var(--player-playermedia-width);
   transition: transform 0.3s ease;
 }
@@ -64,9 +70,10 @@
 
 .media__image {
   position: relative;
+  margin-right: 10px;
 }
 
-.media__left .media__thumbnail {
+.media__image .media__thumbnail {
   display: flex;
   width: var(--player-media-thumbnail-width-height);
   height: var(--player-media-thumbnail-width-height);
@@ -74,7 +81,7 @@
   border-radius: 999px;
 }
 
-.playing .media__left .media__thumbnail {
+.playing .media__image .media__thumbnail {
   will-change: transform;
   animation: rotateThumb 10s linear infinite;
   -webkit-animation: rotateThumb 10s linear infinite;
@@ -157,7 +164,11 @@
 }
 /* thumb note playing */
 
-
+.media__body {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
 
 .media__info {
   overflow: hidden;
@@ -232,18 +243,18 @@
   color: var(--text-secondary);
   text-transform: capitalize;
 }
-.media__right {
+.media__option {
   margin-left: 10px;
 }
-.media__right > * {
+.media__option > * {
   display: flex;
   padding: 9px;
 }
 
-.media__right .material-symbols-outlined {
+.media__option .material-symbols-outlined {
   font-size: 18px !important;
 }
-.media__right button:last-child .material-symbols-outlined {
+.media__option button:last-child .material-symbols-outlined {
   font-weight: 700 !important;
 }
 
@@ -340,18 +351,18 @@ input[type="range"] {
 }
 /* Timeline */
 
-/* Player control Secondary */
-.player__control-secondary {
+/* Player Subcontrol */
+.player__subcontrol {
   justify-content: flex-end;
   align-items: center;
 }
-.player__control-secondary > button {
+.player__subcontrol > button {
   /* display: flex; */
   align-items: center;
   padding: 8px;
   margin: 0 2px;
 }
-.player__control-secondary .btn__queue {
+.player__subcontrol .btn__queue {
   position: relative;
   display: flex;
   background-color: hsla(0, 0%, 100%, 0.1);
@@ -393,21 +404,21 @@ input[type="range"] {
   margin: 0 20px;
 }
 
-.player__control-secondary .material-symbols-outlined {
+.player__subcontrol .material-symbols-outlined {
   font-size: 18px !important;
 }
-/* Player control Secondary */
+/* Player Subcontrol */
 .time.left,
 .time.right,
-.player__control-secondary,
+.player__subcontrol,
 .btn__shuffle,
 .btn__prev,
 .btn__repeat {
   display: var(--player-pc-mobile-display);
 }
 
-.player .media__right {
-  display: var(--player-media-right-display);
+.media__option {
+  display: var(--player-media-option-display);
 }
 
 .btn__mic,
@@ -442,8 +453,8 @@ input[type="range"] {
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
-  --player-height: var(--player-height-respond);
-  
+  /* --player-height: var(--player-height-respond); */
+  --player-input-range-display: block;
 }
 
 .now-playing .player__btn-close {
@@ -472,10 +483,10 @@ element.style {
   border-radius: 4px;
   background: linear-gradient( to right, var(--progressbar-active-bg) 0%, var(--progressbar-active-bg) 86%, var(--progressbar-player-bg) 86%, var(--progressbar-player-bg) 100% );
 }
-.now-playing .player .media__right,
+.now-playing .player .media__option,
 .now-playing .time.left,
 .now-playing .time.right,
-.now-playing .player__control-secondary,
+.now-playing .player__subcontrol,
 .now-playing .btn__shuffle,
 .now-playing .btn__prev,
 .now-playing .btn__repeat {
@@ -531,10 +542,10 @@ element.style {
   display: none;
 }
 
-.now-playing .media__right > *:first-child {
+.now-playing .media__option > *:first-child {
   display: none;
 }
-.now-playing .media__right button {
+.now-playing .media__option button {
   padding-right: 0;
 }
 
@@ -561,8 +572,8 @@ element.style {
   font-size: 48px !important;
 }
 
-/* Primary Now Playing */
-.now-playing .player__control-primary {
+/* Control Now Playing */
+.now-playing .player__control {
   width: 100%;
   flex-grow: unset;
   margin-bottom: 5px;
@@ -618,8 +629,8 @@ element.style {
   left: 75%;
 }
 
-/* Secondary Now Playing */
-.now-playing .player__control-secondary {
+/* Subcontrol Now Playing */
+.now-playing .player__subcontrol {
   width: 100%;
   flex-direction: column;
   align-items: flex-end;

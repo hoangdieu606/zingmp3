@@ -240,9 +240,9 @@ const musicApp = {
   PlayerRender() {
     player.innerHTML = `
   <div class="player">
-    <div class="level player__wrapper">
-      <div class="level__left player__media">
-        <div class="media__left media__image player__image">
+    <div class="player__wrapper">
+      <div class="player__media">
+        <div class="media__image player__image">
           <svg
             fill="var(--progressbar-active-bg)"
             viewBox="0 0 512 512"
@@ -282,20 +282,22 @@ const musicApp = {
           <figure class="media__thumbnail"></figure>
         </div>
   
-        <div class="media__info">
-          <div class="info__song-wrapper">
-            <h3 class="info__song-current"></h3>
+        <div class="media__body">
+          <div class="media__info">
+            <div class="info__song-wrapper">
+              <h3 class="info__song-current"></h3>
+            </div>
+            <p class="info__artist-current"></p>
+            <audio class="info__audio-current" src=""></audio>
           </div>
-          <p class="info__artist-current"></p>
-          <audio class="info__audio-current" src=""></audio>
-        </div>
-        <div class="media__right level">
-          <button>${icon.favorite}</button>
-          <button>${icon.more}</button>
+          <div class="media__option">
+            <button>${icon.favorite}</button>
+            <button>${icon.more}</button>
+          </div>
         </div>
       </div>
   
-      <div class="level__center player__control-primary">
+      <div class="player__control">
         <div class="music__action">
           <button class="btn__shuffle">${icon.shuffle}</button>
           <button class="btn__prev">${icon.skipPrev}</button>
@@ -320,7 +322,7 @@ const musicApp = {
         </div>
       </div>
   
-      <div class="level__right player__control-secondary">
+      <div class="player__subcontrol">
         <button class="btn__movie">${icon.movie}</button>
         <button class="btn__mic">${icon.mic}</button>
         <button class="btn__window">${icon.branding}</button>
@@ -466,7 +468,7 @@ const musicApp = {
                             <div class='level__center'>
                               <span class='info__duration'>03:33</span>
                             </div>
-                            <div class='level__right media__right'>
+                            <div class='media__option'>
                               <button>${icon.favorite}</button>
                               <button>${icon.more}</button>
                             </div>
@@ -911,6 +913,7 @@ const musicApp = {
 
     // player.style.display = "flex";
     player.classList.add('active')
+    $('.sidebar').style.height = 'var(--sidebar-height)'
   },
 };
 

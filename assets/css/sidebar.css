@@ -5,7 +5,7 @@
   z-index: 20;
   width: var(--sidebar-width);
   background-color: var(--sidebar-background-color);
-  height: var(--sidebar-height);
+  height: var(--sidebar-height-init);
   padding: var(--sidebar-padding);
   display: flex;
   flex-direction: column;

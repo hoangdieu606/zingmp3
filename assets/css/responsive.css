@@ -10,7 +10,10 @@
 
   /* Sidebar root */
   --sidebar-width: 240px;
+  --sidebar-height-init: 100%;
   --sidebar-height: calc(100% - var(--player-height));
+  /* --sidebar-height: 100%; */
+
   --sidebar-background-color: var(--sidebar-bg);
   --sidebar-padding: 70px 0px 55px 0px;
   --sidebar-head-padding: 13px 25px 17px 28px;
@@ -31,7 +34,6 @@
 
   /* Player root */
   --player-height: 90px;
-
   --player-padding: 0 20px;
   --player-bottom: 0;
   --player-border-top: 1px solid var(--border-player);
@@ -48,7 +50,7 @@
 
   --player-control-primary-flex: 1;
   --player-pc-mobile-display: flex;
-  --player-media-right-display: flex;
+  --player-media-option-display: flex;
   --player-btn-mic-movie-window-display: flex;
   --player-playermedia-width: 30%;
   --player-media-thumbnail-width-height: 64px;
@@ -113,7 +115,7 @@
 
 
   --player-padding: 0 200px;
-  --player-media-right-display: none;
+  --player-media-option-display: none;
 
 
     /* Theme <= 1350px */
@@ -190,6 +192,7 @@
 
     /* Sidebar <= 739px */
     --sidebar-width: 100%;
+  --sidebar-height-init: 50px;
     --sidebar-height: 50px;
     --sidebar-bottom: 0;
     --sidebar-background-color: var(--sidebar-popup-bg);
@@ -238,7 +241,7 @@
     --content-padding: 0 20px;
     --content-margin-left: 0;
     --content-margin-bottom: calc(
-      var(--player-height) + var(--sidebar-height) + 48px
+      var(--player-height) + var(--sidebar-height-init) + 48px
     );
 
     /* Explore content  <= 739px */

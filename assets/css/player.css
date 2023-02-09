@@ -205,14 +205,14 @@
   transition: all 0.3s linear;
 }
 
-.info__song-current span {
+.info__song-current div {
   width: 100%;
   margin-right: 20px;
   display: flex;
   white-space: nowrap;
 }
 
-.info__song-current span:last-child {
+.info__song-current div:last-child {
   display: none;
 }
 

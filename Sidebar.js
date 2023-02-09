@@ -204,13 +204,6 @@ btnExpanded.addEventListener("click", function () {
     : (btnExpanded.innerHTML = sidebarIcon.iconLeft);
 });
 
-// const sidebarFoot = document.querySelector('.sidebar__footer')
-// const verticalThumb = document.querySelector('.vertical__thumb')
-// sidebarFoot.addEventListener('scroll', function() {
-//   console.log(verticalThumb,sidebarFoot.scrollTop)
-//   verticalThumb.style.transform = `translateY(${sidebarFoot.scrollTop}px)`
-// })
-
 const lists = document.querySelectorAll('.list')
 const contents = document.querySelectorAll('.content')
 

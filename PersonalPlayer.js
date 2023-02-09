@@ -554,7 +554,7 @@ const musicApp = {
     ).innerHTML = `<img src='${currentSong.thumbnail}'>`;
     $(
       ".info__song-current"
-    ).innerHTML = ` <span>${currentSong.song}</span> <span>${currentSong.song}</span>`;
+    ).innerHTML = ` <div>${currentSong.song}</div> <div>${currentSong.song}</div>`;
     $(".info__artist-current").textContent = currentSong.artist;
     $(".info__audio-current").src = currentSong.path;
     $(".info__audio-current").play();

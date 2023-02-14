@@ -559,7 +559,8 @@ const musicApp = {
     ).innerHTML = ` <div>${currentSong.song}</div> <div>${currentSong.song}</div>`;
     $(".info__artist-current").textContent = currentSong.artist;
     $(".info__audio-current").src = currentSong.path;
-    // setTimeout(()=>$(".info__audio-current").play())
+    setTimeout(()=>$(".info__audio-current").play());
+
 
     // Set Current Song -- Active Current Song
     $$(".playlist__child").forEach((elem, index) => {

@@ -198,6 +198,8 @@ function libraryRender() {
         libraryData[index].key,
         true
       );
+
+      setTimeout(()=>$('.info__audio-current').play())
       zmp3Storage.set("ALBUM_INDEX", index);
 
       // active playlist, remove active library
@@ -557,7 +559,7 @@ const musicApp = {
     ).innerHTML = ` <div>${currentSong.song}</div> <div>${currentSong.song}</div>`;
     $(".info__artist-current").textContent = currentSong.artist;
     $(".info__audio-current").src = currentSong.path;
-    $(".info__audio-current").play();
+    // setTimeout(()=>$(".info__audio-current").play())
 
     // Set Current Song -- Active Current Song
     $$(".playlist__child").forEach((elem, index) => {
@@ -655,7 +657,7 @@ const musicApp = {
 
     // ListenEvent -- btnPlay click
     btnPlay.onclick = () => {
-      audio.paused ? audio.play() : audio.pause();
+      audio && audio.paused ? audio.play() : audio.pause();
     };
 
     // ListenEvent -- btnNext click
@@ -730,6 +732,7 @@ const musicApp = {
         if (this.indexSong !== index) {
           this.indexSong = index;
           this.curentSong();
+          audio.play()
         } else {
           btnPlay.click();
         }
@@ -749,8 +752,8 @@ const musicApp = {
     // ListenEvent -- Audio Onpause
     audio.onpause = () => {
       btnPlay.innerHTML = icon.playRounded;
-      btnsPlaying[this.indexSong].innerHTML = icon.playArrow;
-
+      btnsPlaying[this.indexSong].innerHTML = icon.playArrow
+      
       // Window matches mobile 739px
       if (window.matchMedia("(max-width: 739px)").matches) {
         btnPlay.innerHTML = icon.playArrow;

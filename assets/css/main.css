@@ -5,6 +5,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -12,7 +13,6 @@ body {
   color: var(--text-primary);
   font: 14px/1.5 "Inter", sans-serif;
   user-select: none;
-  /* overflow: hidden overlay; */
 }
 
 input,
